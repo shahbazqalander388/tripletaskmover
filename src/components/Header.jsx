@@ -7,12 +7,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
         {/* Left Side: Email */}
         <a 
-          href="mailto:info.brotherscab@gmail.com" 
+          href="mailto:Tripletaskmovers@gmail.com" 
           className="flex items-center gap-1.5 sm:gap-2 hover:opacity-80 transition-opacity min-w-0"
         >
           <Mail size={16} className="flex-shrink-0" />
           <span className="text-[11px] sm:text-sm font-medium truncate">
-            info.brotherscab@gmail.com
+            Tripletaskmovers@gmail.com
           </span>
         </a>
         

@@ -4,42 +4,23 @@ import { CarFront, Plane, Truck, ArrowRight, Package } from 'lucide-react';
 export default function Services() {
   const services = [
     {
-      title: '24/7 Taxi Service',
-      description: 'Reliable and prompt local taxi rides across Blackfalds and neighboring areas. Safe, clean, and always on time.',
-      icon: <CarFront size={40} className="text-amber-500" />,
-      image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800'
-    },
-    {
-      title: 'Airport Shuttle',
-      description: 'Stress-free airport transfers. Pre-book your ride to ensure you never miss a flight. Punctual pick-up and drop-off guaranteed.',
-      icon: <Plane size={40} className="text-amber-500" />,
-      image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=800'
-    },
-    {
-      title: 'Transport Services',
-      description: 'Need help moving luggage or local transport solutions? We provide spacious vehicles for your belongings.',
+      title: 'Moving Services',
+      description: 'Professional moving services for residential and commercial needs across Red Deer and nearby communities. Safe and reliable.',
       icon: <Truck size={40} className="text-amber-500" />,
-      image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800'
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800'
+    },
+    {
+      title: 'Cleaning Services',
+      description: 'Thorough cleaning services to make your space shine. We offer move-in, move-out, and general cleaning solutions.',
+      icon: <CarFront size={40} className="text-amber-500" />,
+      image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=800'
+    },
+    {
+      title: 'Junk Removal',
+      description: 'Efficient junk removal to declutter your space. We handle all the heavy lifting and responsible disposal.',
+      icon: <Plane size={40} className="text-amber-500" />,
+      image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800'
     }
-  ];
-
-  const additionalServices = [
-    "House Shifting",
-    "Home Relocation",
-    "Office Relocation",
-    "Packers and Movers",
-    "Furniture Moving",
-    "Loading and Unloading",
-    "Local Moving",
-    "Intercity Moving",
-    "Long Distance Moving",
-    "Commercial Moving",
-    "Residential Moving",
-    "Storage and Warehousing",
-    "Packing Services",
-    "Unpacking Services",
-    "Vehicle Transportation",
-    "Logistics and Relocation Services"
   ];
 
   return (
@@ -77,21 +58,6 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Additional Services List */}
-        <div className="mt-24 pt-16 border-t border-slate-200">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">Complete Moving & Relocation Services</h3>
-            <p className="text-slate-600 mt-3 text-lg">Comprehensive logistics and moving solutions tailored for every kind of move.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {additionalServices.map((service, index) => (
-              <div key={index} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-amber-300 hover:shadow-md transition-all group">
-                <Package className="text-amber-500 flex-shrink-0 group-hover:scale-110 transition-transform" size={20} />
-                <span className="text-slate-700 font-medium group-hover:text-amber-700 transition-colors">{service}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

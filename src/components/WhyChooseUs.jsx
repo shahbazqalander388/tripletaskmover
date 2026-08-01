@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
           <div className="lg:w-1/3">
             <h2 className="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-2">Why Choose Us</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
-              The Best Ride Experience in Blackfalds
+              The Best Moving Experience in Red Deer
             </h3>
             <p className="text-lg text-slate-600 mb-8">
               We go above and beyond to ensure our customers are satisfied. From our well-maintained vehicles to our professional team, Triple Task Movers sets the standard for transportation.

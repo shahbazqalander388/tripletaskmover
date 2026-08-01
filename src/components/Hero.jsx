@@ -35,11 +35,11 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="relative min-h-[750px] w-full flex items-center justify-center bg-slate-900 bg-cover bg-center overflow-hidden py-16 lg:py-0"
-      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2070')" }}
+      className="relative min-h-[750px] w-full flex items-center justify-center bg-[#d8a65e] bg-contain bg-no-repeat bg-top lg:bg-left overflow-hidden pt-80 pb-16 lg:py-0"
+      style={{ backgroundImage: "url('https://res.cloudinary.com/dai2g47e4/image/upload/v1784754839/WhatsApp_Image_2026-07-23_at_1.52.49_AM_cdyvk3.jpg')" }}
     >
-      {/* Dark Overlay - 55% Opacity */}
-      <div className="absolute inset-0 bg-black/55"></div>
+      {/* Dark Overlay - Adjusted Opacity for better brightness */}
+      <div className="absolute inset-0 bg-black/60"></div>
       
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-8">
@@ -47,7 +47,7 @@ export default function Hero() {
         {/* Left Side - Content */}
         <div className="w-full lg:w-[45%] text-center lg:text-left">
           <h1 className="text-white font-[800] text-5xl lg:text-[76px] leading-[1.1] lg:leading-[1.05] mb-6 drop-shadow-md">
-            Top-Rated Movers in Blackfalds
+            Top-Rated Movers in Red Deer
           </h1>
           <p className="text-[#F2F2F2] text-lg lg:text-[22px] leading-[1.6] lg:leading-[1.7] max-w-[600px] mx-auto lg:mx-0 drop-shadow">
             Experience a stress-free move with our trusted professionals. We provide premium shifting and relocation services tailored to your needs, whether local or long-distance.

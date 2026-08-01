@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="mb-12 rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80 w-full border-4 border-white/20">
           <iframe
             title="Triple Task Movers Location"
-            src="https://maps.google.com/maps?q=4500%20Blackfalds%20Crossing%20Way,%20Blackfalds%20AB%20T0C%200J0,%20Canada&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Red%20Deer,%20AB,%20Canada&t=&z=13&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -27,7 +27,7 @@ export default function Footer() {
               TRIPLE TASK <span className="text-amber-900">MOVERS</span>
             </a>
             <p className="text-white/90 mb-6 leading-relaxed font-medium">
-              Your trusted partner for 24/7 taxi, airport shuttle, and transport services in Blackfalds, AB. Clean vehicles, professional drivers, and guaranteed on-time service.
+              Your trusted partner for moving, cleaning, and junk removal services in Red Deer and nearby communities.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.tiktok.com/@triple.task.mover?_r=1&_t=ZS-98CEkqjPUhh" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-amber-900 flex items-center justify-center hover:bg-white hover:text-[#B08D57] transition-colors shadow-sm" title="TikTok">
@@ -59,15 +59,15 @@ export default function Footer() {
             <ul className="space-y-4 font-medium">
               <li className="flex items-start gap-3">
                 <MapPin className="text-amber-900 mt-1 flex-shrink-0" size={20} />
-                <a href="https://maps.app.goo.gl/oa4qXNwcKtu9fWAX8" target="_blank" rel="noreferrer" className="text-white/90 hover:text-amber-900 transition-colors">
-                  4500 Blackfalds Crossing Way,<br />
-                  Blackfalds AB T0C 0J0, Canada
+                <a href="https://maps.app.goo.gl/6BaTZtDFPnMbSdKM8?g_st=ic" target="_blank" rel="noreferrer" className="text-white/90 hover:text-amber-900 transition-colors">
+                  Red Deer,<br />
+                  and nearby communities
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-amber-900 flex-shrink-0" size={20} />
-                <a href="mailto:info.brotherscab@gmail.com" className="text-white/90 hover:text-amber-900 transition-colors">
-                  info.brotherscab@gmail.com
+                <a href="mailto:Tripletaskmovers@gmail.com" className="text-white/90 hover:text-amber-900 transition-colors">
+                  Tripletaskmovers@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">

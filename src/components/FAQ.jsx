@@ -9,11 +9,11 @@ export default function FAQ() {
     },
     {
       question: "Are you really open 24 hours a day?",
-      answer: "Yes, our taxi and transport services operate 24/7. Whether it's 2 PM or 2 AM, you can count on Triple Task Movers to be available in Blackfalds and the surrounding areas."
+      answer: "Yes, our moving, cleaning and junk removal services operate 24/7. Whether it's 2 PM or 2 AM, you can count on Triple Task Movers to be available in Red Deer and the surrounding areas."
     },
     {
       question: "What areas do you cover?",
-      answer: "We primarily serve Blackfalds, AB and the surrounding regions. If you need a long-distance transport or airport run (e.g., to Calgary or Edmonton), please contact us for a free estimate."
+      answer: "We primarily serve Red Deer, AB and the surrounding regions. If you need a long-distance transport or airport run (e.g., to Calgary or Edmonton), please contact us for a free estimate."
     },
     {
       question: "How do you calculate your pricing?",
