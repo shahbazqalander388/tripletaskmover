@@ -78,11 +78,16 @@ export default function Hero() {
                     onChange={handleChange}
                     className="w-full pl-10 pr-8 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700 bg-white"
                   >
-                    <option>Small Move / Single Items</option>
+                    <option>Studio Apartment</option>
                     <option>1 Bedroom Home</option>
                     <option>2 Bedroom Home</option>
-                    <option>3+ Bedroom Home</option>
+                    <option>3 Bedroom Home</option>
+                    <option>4+ Bedroom Home</option>
+                    <option>Small Move / Single Items</option>
                     <option>Office / Commercial</option>
+                    <option>Junk Removal</option>
+                    <option>Cleaning Services</option>
+                    <option>Labor Only (Loading/Unloading)</option>
                   </select>
                 </div>
               </div>
