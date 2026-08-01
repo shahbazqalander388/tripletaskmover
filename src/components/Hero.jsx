@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Calendar, MapPin, Navigation, User, Phone } from 'lucide-react';
+import { Calendar, MapPin, Navigation, User, Phone, Mail, Home } from 'lucide-react';
 
 export default function Hero() {
   const [formData, setFormData] = useState({
-    serviceType: 'Taxi',
+    moveDate: '',
+    moveSize: '1 Bedroom Home',
     name: '',
+    email: '',
     phone: '',
-    pickup: '',
-    dropoff: '',
-    datetime: ''
+    fromAddress: '',
+    toAddress: ''
   });
 
   const handleChange = (e) => {
@@ -18,140 +19,122 @@ export default function Hero() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const message = `*New Booking Request*%0A
-*Service Type:* ${formData.serviceType}%0A
+    const message = `*Free Moving Estimate Request*%0A
+*Move Date:* ${formData.moveDate}%0A
+*Move Size:* ${formData.moveSize}%0A
 *Name:* ${formData.name}%0A
+*Email:* ${formData.email}%0A
 *Phone:* ${formData.phone}%0A
-*Pickup:* ${formData.pickup}%0A
-*Dropoff:* ${formData.dropoff}%0A
-*Date & Time:* ${formData.datetime.replace('T', ' ')}`;
+*From:* ${formData.fromAddress}%0A
+*To:* ${formData.toAddress}`;
 
     const whatsappUrl = `https://wa.me/13654400188?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 
   return (
-    <section id="home" className="relative bg-slate-900 pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
-      {/* Abstract Background Elements */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center opacity-20"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/50"></div>
+    <section 
+      id="home" 
+      className="relative min-h-[750px] w-full flex items-center justify-center bg-slate-900 bg-cover bg-center overflow-hidden py-16 lg:py-0"
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2070')" }}
+    >
+      {/* Dark Overlay - 55% Opacity */}
+      <div className="absolute inset-0 bg-black/55"></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      {/* Content Container */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-8">
+        
+        {/* Left Side - Content */}
+        <div className="w-full lg:w-[45%] text-center lg:text-left">
+          <h1 className="text-white font-[800] text-5xl lg:text-[76px] leading-[1.1] lg:leading-[1.05] mb-6 drop-shadow-md">
+            Top-Rated Movers in Blackfalds
+          </h1>
+          <p className="text-[#F2F2F2] text-lg lg:text-[22px] leading-[1.6] lg:leading-[1.7] max-w-[600px] mx-auto lg:mx-0 drop-shadow">
+            Experience a stress-free move with our trusted professionals. We provide premium shifting and relocation services tailored to your needs, whether local or long-distance.
+          </p>
+        </div>
+
+        {/* Right Side - Form */}
+        <div className="w-full lg:w-[40%] max-w-[650px] bg-white rounded-[12px] p-6 lg:p-[40px] shadow-[0_10px_30px_rgba(0,0,0,0.15)]">
+          <h3 className="text-2xl lg:text-3xl font-extrabold text-slate-900 mb-6 text-center lg:text-left">Free Moving Estimate</h3>
           
-          {/* Left Side - Content */}
-          <div className="text-white max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 font-semibold text-sm mb-6 border border-amber-500/30">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-              </span>
-              24/7 Available in Blackfalds & Surrounding Areas
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-              Top-Rated <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">24/7 Taxi</span>,<br />
-              Airport Shuttle &<br />
-              Transport Services
-            </h1>
-            <p className="text-lg sm:text-xl text-slate-300 mb-8 font-light">
-              Experience safe, reliable, and prompt transportation solutions. Whether it's a quick city ride, an airport drop-off, or moving luggage, Triple Task Movers has you covered.
-            </p>
+          <form onSubmit={handleSubmit} className="space-y-4">
             
-            <div className="space-y-4 mb-8">
-              {['Clean & Sanitized Vehicles', 'Professional & Vetted Drivers', 'On-Time Guarantee Always'].map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <CheckCircle2 className="text-amber-500" size={24} />
-                  <span className="text-lg font-medium text-slate-200">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Side - Form */}
-          <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 relative overflow-hidden transform transition-transform hover:scale-[1.01] duration-300">
-            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-amber-400 to-amber-600"></div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">Request a Ride</h3>
-            <p className="text-slate-500 mb-6 text-sm">Fill out the form below for a quick estimate or to pre-book.</p>
-            
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Service Type</label>
-                <select 
-                  name="serviceType" 
-                  value={formData.serviceType}
-                  onChange={handleChange}
-                  className="w-full pl-3 pr-10 py-2.5 text-base border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 sm:text-sm rounded-lg border bg-slate-50"
-                >
-                  <option>Taxi Service</option>
-                  <option>Airport Shuttle</option>
-                  <option>Transport / Luggage</option>
-                  <option>House Shifting</option>
-                  <option>Home Relocation</option>
-                  <option>Office Relocation</option>
-                  <option>Packers and Movers</option>
-                  <option>Furniture Moving</option>
-                  <option>Loading and Unloading</option>
-                  <option>Local Moving</option>
-                  <option>Intercity Moving</option>
-                  <option>Long Distance Moving</option>
-                  <option>Commercial Moving</option>
-                  <option>Residential Moving</option>
-                  <option>Storage and Warehousing</option>
-                  <option>Packing Services</option>
-                  <option>Unpacking Services</option>
-                  <option>Vehicle Transportation</option>
-                  <option>Logistics and Relocation Services</option>
-                </select>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                    <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all" placeholder="John Doe" />
-                  </div>
-                </div>
-                <div className="relative">
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                    <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all" placeholder="+1 (365) 000-0000" />
-                  </div>
-                </div>
-              </div>
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative">
-                <label className="block text-sm font-medium text-slate-700 mb-1">Pickup Location</label>
-                <div className="relative">
-                  <Navigation className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                  <input type="text" name="pickup" required value={formData.pickup} onChange={handleChange} className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all" placeholder="Enter pickup address" />
-                </div>
-              </div>
-
-              <div className="relative">
-                <label className="block text-sm font-medium text-slate-700 mb-1">Dropoff Location</label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                  <input type="text" name="dropoff" required value={formData.dropoff} onChange={handleChange} className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all" placeholder="Enter dropoff address" />
-                </div>
-              </div>
-
-              <div className="relative">
-                <label className="block text-sm font-medium text-slate-700 mb-1">Date & Time</label>
+                <label className="block text-sm font-semibold text-slate-700 mb-1">Move Date</label>
                 <div className="relative">
                   <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                  <input type="datetime-local" name="datetime" required value={formData.datetime} onChange={handleChange} className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all" />
+                  <input type="date" name="moveDate" required value={formData.moveDate} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" />
                 </div>
               </div>
+              <div className="relative">
+                <label className="block text-sm font-semibold text-slate-700 mb-1">Move Size</label>
+                <div className="relative">
+                  <Home className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                  <select 
+                    name="moveSize" 
+                    value={formData.moveSize}
+                    onChange={handleChange}
+                    className="w-full pl-10 pr-8 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700 bg-white"
+                  >
+                    <option>Small Move / Single Items</option>
+                    <option>1 Bedroom Home</option>
+                    <option>2 Bedroom Home</option>
+                    <option>3+ Bedroom Home</option>
+                    <option>Office / Commercial</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-              <button type="submit" className="w-full bg-amber-500 text-slate-900 font-bold text-lg py-3 rounded-lg mt-4 shadow-lg hover:bg-amber-400 hover:shadow-xl transition-all transform hover:-translate-y-0.5">
-                Get Estimate / Pre-Book
-              </button>
-            </form>
-          </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="relative">
+                <label className="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                  <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="John Doe" />
+                </div>
+              </div>
+              <div className="relative">
+                <label className="block text-sm font-semibold text-slate-700 mb-1">Phone Number</label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="+1 (365) 000-0000" />
+                </div>
+              </div>
+            </div>
 
+            <div className="relative">
+              <label className="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                <input type="email" name="email" required value={formData.email} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="john@example.com" />
+              </div>
+            </div>
+
+            <div className="relative">
+              <label className="block text-sm font-semibold text-slate-700 mb-1">From Address</label>
+              <div className="relative">
+                <Navigation className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                <input type="text" name="fromAddress" required value={formData.fromAddress} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="Pickup location" />
+              </div>
+            </div>
+
+            <div className="relative">
+              <label className="block text-sm font-semibold text-slate-700 mb-1">To Address</label>
+              <div className="relative">
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                <input type="text" name="toAddress" required value={formData.toAddress} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="Destination location" />
+              </div>
+            </div>
+
+            <button type="submit" className="w-full bg-[#B08D57] hover:bg-[#977647] text-white font-bold text-lg py-3.5 rounded-md mt-6 shadow-md transition-all transform hover:-translate-y-0.5">
+              Get Free Quote
+            </button>
+          </form>
         </div>
+
       </div>
     </section>
   );

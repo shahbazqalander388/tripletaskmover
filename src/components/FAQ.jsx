@@ -32,10 +32,10 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faqs" className="py-20 bg-slate-900 text-slate-200">
+    <section id="faqs" className="py-20 bg-[#B08D57]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-2">Got Questions?</h2>
+          <h2 className="text-amber-900 font-bold tracking-wide uppercase text-sm mb-2">Got Questions?</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Frequently Asked Questions</h3>
         </div>
 
@@ -43,24 +43,24 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`border border-slate-700 rounded-xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'bg-slate-800' : 'bg-slate-900 hover:bg-slate-800/50'}`}
+              className={`rounded-xl overflow-hidden shadow-sm transition-all duration-300 ${openIndex === index ? 'bg-white shadow-md' : 'bg-white/95 hover:bg-white'}`}
             >
               <button 
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
               >
-                <span className="font-semibold text-lg text-white">{faq.question}</span>
+                <span className="font-bold text-lg text-slate-900">{faq.question}</span>
                 {openIndex === index ? (
-                  <ChevronUp className="text-amber-500 flex-shrink-0 ml-4" size={24} />
+                  <ChevronUp className="text-[#B08D57] flex-shrink-0 ml-4" size={24} />
                 ) : (
-                  <ChevronDown className="text-slate-500 flex-shrink-0 ml-4" size={24} />
+                  <ChevronDown className="text-slate-400 flex-shrink-0 ml-4" size={24} />
                 )}
               </button>
               
               <div 
                 className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-48 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
               >
-                <p className="text-slate-400">{faq.answer}</p>
+                <p className="text-slate-600 font-medium">{faq.answer}</p>
               </div>
             </div>
           ))}
