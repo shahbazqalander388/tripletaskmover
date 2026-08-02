@@ -4,7 +4,7 @@ import { Calendar, MapPin, Navigation, User, Phone, Mail, Home } from 'lucide-re
 export default function Hero() {
   const [formData, setFormData] = useState({
     moveDate: '',
-    moveSize: '1 Bedroom Home',
+    serviceType: '1 Bedroom Home',
     name: '',
     email: '',
     phone: '',
@@ -19,9 +19,9 @@ export default function Hero() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const message = `*Free Moving Estimate Request*%0A
-*Move Date:* ${formData.moveDate}%0A
-*Move Size:* ${formData.moveSize}%0A
+    const message = `*Free Estimate Request*%0A
+*Date:* ${formData.moveDate}%0A
+*Service:* ${formData.serviceType}%0A
 *Name:* ${formData.name}%0A
 *Email:* ${formData.email}%0A
 *Phone:* ${formData.phone}%0A
@@ -69,12 +69,12 @@ export default function Hero() {
                 </div>
               </div>
               <div className="relative">
-                <label className="block text-sm font-semibold text-slate-700 mb-1">Move Size</label>
+                <label className="block text-sm font-semibold text-slate-700 mb-1">Service Required</label>
                 <div className="relative">
                   <Home className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                   <select 
-                    name="moveSize" 
-                    value={formData.moveSize}
+                    name="serviceType" 
+                    value={formData.serviceType}
                     onChange={handleChange}
                     className="w-full pl-10 pr-8 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700 bg-white"
                   >

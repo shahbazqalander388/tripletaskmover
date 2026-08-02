@@ -4,8 +4,8 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 export default function FAQ() {
   const faqs = [
     {
-      question: "Can I pre-book a ride for an early morning airport drop-off?",
-      answer: "Yes, absolutely! We highly encourage pre-booking for airport shuttles to guarantee your driver is there right on time. You can book days or even weeks in advance."
+      question: "Do you offer packing services?",
+      answer: "Yes, we offer full packing and unpacking services to ensure your items are safely transported."
     },
     {
       question: "Are you really open 24 hours a day?",
@@ -13,19 +13,19 @@ export default function FAQ() {
     },
     {
       question: "What areas do you cover?",
-      answer: "We primarily serve Red Deer, AB and the surrounding regions. If you need a long-distance transport or airport run (e.g., to Calgary or Edmonton), please contact us for a free estimate."
+      answer: "We primarily serve Red Deer, AB and the surrounding regions. If you need a long-distance move (e.g., to Calgary or Edmonton), please contact us for a free estimate."
     },
     {
       question: "How do you calculate your pricing?",
-      answer: "We believe in transparent pricing. For local rides, we use a standard metered rate. For long-distance trips or transport services, we can provide a fixed flat-rate quote upfront so there are no surprises."
+      answer: "We believe in transparent pricing. For local moves, we use an hourly rate. For large cleanouts or long-distance moves, we can provide a fixed flat-rate quote upfront so there are no surprises."
     },
     {
       question: "Do you accept card payments?",
-      answer: "Yes, our drivers carry POS terminals. We accept all major credit/debit cards, as well as cash and digital payments for your convenience."
+      answer: "Yes, our team carries POS terminals. We accept all major credit/debit cards, as well as cash and digital payments for your convenience."
     }
   ];
 
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);

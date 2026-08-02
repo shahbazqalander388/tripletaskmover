@@ -82,7 +82,7 @@ export default function Footer() {
           {/* WhatsApp / CTA */}
           <div>
             <h4 className="text-white font-extrabold text-lg mb-6 drop-shadow-sm">Available 24/7</h4>
-            <p className="text-white/90 mb-6 font-medium">Need a ride right now? Reach out to us directly on WhatsApp for instant booking.</p>
+            <p className="text-white/90 mb-6 font-medium">Need our services right now? Reach out to us directly on WhatsApp for instant booking.</p>
             <a 
               href="https://wa.me/13654400188"
               target="_blank"

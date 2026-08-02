@@ -5,25 +5,25 @@ export default function WhyChooseUs() {
   const features = [
     {
       title: '24/7 Availability',
-      description: 'Day or night, rain or shine, we are always ready to take you to your destination safely.',
+      description: 'Day or night, rain or shine, we are always ready to handle your moving, cleaning, and junk removal needs.',
       icon: <Clock size={32} className="text-white" />,
       color: 'bg-blue-500'
     },
     {
       title: 'Clean & Sanitized',
-      description: 'Our fleet is meticulously cleaned and maintained to ensure a comfortable and safe ride for every passenger.',
+      description: 'Our trucks are meticulously cleaned and maintained to ensure your belongings are transported safely and securely.',
       icon: <ShieldCheck size={32} className="text-white" />,
       color: 'bg-emerald-500'
     },
     {
-      title: 'Professional Drivers',
-      description: 'Experienced, vetted, and courteous drivers who know the local routes to get you there on time.',
+      title: 'Professional Movers',
+      description: 'Experienced, vetted, and courteous movers who know how to handle your belongings with care.',
       icon: <UserCheck size={32} className="text-white" />,
       color: 'bg-amber-500'
     },
     {
       title: 'Transparent Pricing',
-      description: 'No hidden fees or surge surprises. We offer honest, upfront pricing for all our services.',
+      description: 'No hidden fees or unexpected charges. We provide honest, upfront quotes for all our moving and cleaning services.',
       icon: <BadgeDollarSign size={32} className="text-white" />,
       color: 'bg-purple-500'
     }
@@ -40,10 +40,10 @@ export default function WhyChooseUs() {
               The Best Moving Experience in Red Deer
             </h3>
             <p className="text-lg text-slate-600 mb-8">
-              We go above and beyond to ensure our customers are satisfied. From our well-maintained vehicles to our professional team, Triple Task Movers sets the standard for transportation.
+              We go above and beyond to ensure our customers are satisfied. From our well-maintained trucks to our professional team, Triple Task Movers sets the standard for moving and cleaning services.
             </p>
             <a href="#home" className="inline-flex bg-slate-900 text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-slate-800 transition-colors">
-              Pre-Book Your Ride
+              Book Your Service
             </a>
           </div>
 

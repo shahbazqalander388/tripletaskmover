@@ -1,5 +1,5 @@
 import React from 'react';
-import { CarFront, Plane, Truck, ArrowRight, Package } from 'lucide-react';
+import { Sparkles, Trash2, Truck, ArrowRight } from 'lucide-react';
 
 export default function Services() {
   const services = [
@@ -12,13 +12,13 @@ export default function Services() {
     {
       title: 'Cleaning Services',
       description: 'Thorough cleaning services to make your space shine. We offer move-in, move-out, and general cleaning solutions.',
-      icon: <CarFront size={40} className="text-amber-500" />,
+      icon: <Sparkles size={40} className="text-amber-500" />,
       image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=800'
     },
     {
       title: 'Junk Removal',
       description: 'Efficient junk removal to declutter your space. We handle all the heavy lifting and responsible disposal.',
-      icon: <Plane size={40} className="text-amber-500" />,
+      icon: <Trash2 size={40} className="text-amber-500" />,
       image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800'
     }
   ];
@@ -28,9 +28,9 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-2">Our Services</h2>
-          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Premium Transportation Solutions</h3>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Premium Moving Solutions</h3>
           <p className="text-lg text-slate-600">
-            We provide a range of services designed to get you where you need to go safely and comfortably.
+            We provide a range of services designed to get your belongings where they need to go safely and securely.
           </p>
         </div>
 
