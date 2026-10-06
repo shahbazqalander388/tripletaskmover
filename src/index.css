@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,12 +9,33 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans antialiased text-slate-800 bg-slate-50;
+    @apply font-sans antialiased text-slate-800 bg-slate-50 selection:bg-[#B08D57]/20 selection:text-slate-900;
   }
 }
 
 @layer utilities {
-  .glass-nav {
-    @apply bg-white/90 backdrop-blur-md border-b border-slate-200/50;
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  
+  .glass-card-dark {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gold-gradient-bg {
+    background: linear-gradient(135deg, #cba770 0%, #B08D57 50%, #977647 100%);
+  }
+  
+  .gold-text-gradient {
+    background: linear-gradient(135deg, #e4c794 0%, #B08D57 60%, #977647 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
+

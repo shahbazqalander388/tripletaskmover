@@ -1,143 +1,68 @@
-import React, { useState } from 'react';
-import { Calendar, MapPin, Navigation, User, Phone, Mail, Home } from 'lucide-react';
+import React from 'react';
+import { ArrowDown, Phone, ShieldCheck, Clock } from 'lucide-react';
 
 export default function Hero() {
-  const [formData, setFormData] = useState({
-    moveDate: '',
-    serviceType: '1 Bedroom Home',
-    name: '',
-    email: '',
-    phone: '',
-    fromAddress: '',
-    toAddress: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    const message = `*Free Estimate Request*%0A
-*Date:* ${formData.moveDate}%0A
-*Service:* ${formData.serviceType}%0A
-*Name:* ${formData.name}%0A
-*Email:* ${formData.email}%0A
-*Phone:* ${formData.phone}%0A
-*From:* ${formData.fromAddress}%0A
-*To:* ${formData.toAddress}`;
-
-    const whatsappUrl = `https://wa.me/13654400188?text=${message}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
     <section 
       id="home" 
-      className="relative min-h-[750px] w-full flex items-center justify-center bg-[#d8a65e] bg-contain bg-no-repeat bg-top lg:bg-left overflow-hidden pt-80 pb-16 lg:py-0"
-      style={{ backgroundImage: "url('https://res.cloudinary.com/dai2g47e4/image/upload/v1784754839/WhatsApp_Image_2026-07-23_at_1.52.49_AM_cdyvk3.jpg')" }}
+      className="relative min-h-[600px] lg:min-h-[700px] w-full flex items-center justify-center bg-slate-950 overflow-hidden py-12 lg:py-20"
     >
-      {/* Dark Overlay - Adjusted Opacity for better brightness */}
-      <div className="absolute inset-0 bg-black/60"></div>
-      
-      {/* Content Container */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-8">
+      {/* Background Graphic & Accent Glows */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/95 to-slate-900" />
+        {/* Warm Golden Glows matching #B08D57 */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] sm:w-[45rem] h-[30rem] rounded-full bg-[#B08D57]/20 blur-[140px] pointer-events-none" />
+      </div>
+
+      {/* Front Hero Content: Official Logo Showcase */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         
-        {/* Left Side - Content */}
-        <div className="w-full lg:w-[45%] text-center lg:text-left">
-          <h1 className="text-white font-[800] text-5xl lg:text-[76px] leading-[1.1] lg:leading-[1.05] mb-6 drop-shadow-md">
-            Top-Rated Movers in Red Deer
-          </h1>
-          <p className="text-[#F2F2F2] text-lg lg:text-[22px] leading-[1.6] lg:leading-[1.7] max-w-[600px] mx-auto lg:mx-0 drop-shadow">
-            Experience a stress-free move with our trusted professionals. We provide premium shifting and relocation services tailored to your needs, whether local or long-distance.
-          </p>
+        {/* Main Logo Image Displayed in Front */}
+        <div className="relative group max-w-[340px] sm:max-w-[460px] lg:max-w-[520px] w-full mb-8">
+          <div className="absolute -inset-2 bg-gradient-to-r from-[#B08D57] via-[#cba770] to-[#977647] rounded-3xl opacity-40 blur-xl group-hover:opacity-60 transition duration-500"></div>
+          
+          <div className="relative bg-white rounded-3xl p-3 sm:p-5 shadow-[0_20px_60px_rgba(0,0,0,0.4)] border-2 border-[#B08D57]/50 overflow-hidden">
+            <img 
+              src="/icon-512.png" 
+              alt="Triple Task Movers - Moving, Cleaning & Junk Removal" 
+              className="w-full h-auto object-contain rounded-2xl shadow-inner transform hover:scale-[1.02] transition-transform duration-300"
+              onError={(e) => {
+                e.currentTarget.src = "https://res.cloudinary.com/dai2g47e4/image/upload/v1784754839/WhatsApp_Image_2026-07-23_at_1.52.49_AM_cdyvk3.jpg";
+              }}
+            />
+          </div>
         </div>
 
-        {/* Right Side - Form */}
-        <div className="w-full lg:w-[40%] max-w-[650px] bg-white rounded-[12px] p-6 lg:p-[40px] shadow-[0_10px_30px_rgba(0,0,0,0.15)]">
-          <h3 className="text-2xl lg:text-3xl font-extrabold text-slate-900 mb-6 text-center lg:text-left">Free Moving Estimate</h3>
-          
-          <form onSubmit={handleSubmit} className="space-y-4">
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative">
-                <label className="block text-sm font-semibold text-slate-700 mb-1">Move Date</label>
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                  <input type="date" name="moveDate" required value={formData.moveDate} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" />
-                </div>
-              </div>
-              <div className="relative">
-                <label className="block text-sm font-semibold text-slate-700 mb-1">Service Required</label>
-                <div className="relative">
-                  <Home className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                  <select 
-                    name="serviceType" 
-                    value={formData.serviceType}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-8 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700 bg-white"
-                  >
-                    <option>Studio Apartment</option>
-                    <option>1 Bedroom Home</option>
-                    <option>2 Bedroom Home</option>
-                    <option>3 Bedroom Home</option>
-                    <option>4+ Bedroom Home</option>
-                    <option>Small Move / Single Items</option>
-                    <option>Office / Commercial</option>
-                    <option>Junk Removal</option>
-                    <option>Cleaning Services</option>
-                    <option>Labor Only (Loading/Unloading)</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+        {/* Quick Actions & Subtitle */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6">
+          <a 
+            href="#estimate"
+            className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#977647] text-white px-6 sm:px-8 py-3.5 rounded-xl font-extrabold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+          >
+            <span>Get Free Estimate</span>
+            <ArrowDown size={18} />
+          </a>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative">
-                <label className="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                  <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="John Doe" />
-                </div>
-              </div>
-              <div className="relative">
-                <label className="block text-sm font-semibold text-slate-700 mb-1">Phone Number</label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="+1 (365) 000-0000" />
-                </div>
-              </div>
-            </div>
+          <a 
+            href="tel:+13654400188"
+            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 sm:px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base backdrop-blur-md transition-all transform hover:-translate-y-0.5"
+          >
+            <Phone size={18} className="text-[#B08D57]" />
+            <span>+1 (365) 440-0188</span>
+          </a>
+        </div>
 
-            <div className="relative">
-              <label className="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                <input type="email" name="email" required value={formData.email} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="john@example.com" />
-              </div>
-            </div>
-
-            <div className="relative">
-              <label className="block text-sm font-semibold text-slate-700 mb-1">From Address</label>
-              <div className="relative">
-                <Navigation className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                <input type="text" name="fromAddress" required value={formData.fromAddress} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="Pickup location" />
-              </div>
-            </div>
-
-            <div className="relative">
-              <label className="block text-sm font-semibold text-slate-700 mb-1">To Address</label>
-              <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                <input type="text" name="toAddress" required value={formData.toAddress} onChange={handleChange} className="w-full pl-10 pr-3 py-2.5 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all text-slate-700" placeholder="Destination location" />
-              </div>
-            </div>
-
-            <button type="submit" className="w-full bg-[#B08D57] hover:bg-[#977647] text-white font-bold text-lg py-3.5 rounded-md mt-6 shadow-md transition-all transform hover:-translate-y-0.5">
-              Get Free Quote
-            </button>
-          </form>
+        {/* Quick Highlights Strip */}
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-slate-300 text-xs sm:text-sm font-semibold">
+          <div className="flex items-center gap-1.5">
+            <ShieldCheck size={16} className="text-[#B08D57]" />
+            <span>Licensed & Insured</span>
+          </div>
+          <span>•</span>
+          <div className="flex items-center gap-1.5">
+            <Clock size={16} className="text-[#B08D57]" />
+            <span>24/7 Red Deer & Central Alberta</span>
+          </div>
         </div>
 
       </div>
