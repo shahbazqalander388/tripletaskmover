@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, MessageCircle, Phone, HelpCircle } from 'lucide-react';
+import { ChevronDown, Mail, Phone, HelpCircle } from 'lucide-react';
 
 export default function FAQ() {
   const faqs = [
@@ -108,13 +108,11 @@ export default function FAQ() {
           
           <div className="flex items-center gap-3 flex-shrink-0">
             <a 
-              href="https://wa.me/13654400188"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20b958] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-md transition-all"
+              href="mailto:Tripletaskmovers@gmail.com?subject=FAQ%20Inquiry%20-%20Triple%20Task%20Movers"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-md transition-all"
             >
-              <MessageCircle size={16} />
-              <span>WhatsApp</span>
+              <Mail size={16} className="text-[#B08D57]" />
+              <span>Email Us</span>
             </a>
             <a 
               href="tel:+13654400188"

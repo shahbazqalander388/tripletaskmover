@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   const serviceAreas = [
@@ -152,23 +152,21 @@ export default function Footer() {
           {/* Column 4: 24/7 Rapid Booking Box */}
           <div className="bg-black/20 backdrop-blur-sm rounded-3xl p-6 border border-white/20 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-200 border border-emerald-400/30 px-2.5 py-1 rounded-md text-xs font-bold mb-3">
-                <span>Direct Dispatch</span>
+              <div className="inline-flex items-center gap-1.5 bg-white/20 text-white border border-white/30 px-2.5 py-1 rounded-md text-xs font-bold mb-3">
+                <span>Fast Response</span>
               </div>
-              <h4 className="text-white font-extrabold italic text-lg mb-2">Book via WhatsApp</h4>
+              <h4 className="text-white font-extrabold italic text-lg mb-2">Email for Fast Quote</h4>
               <p className="text-white/85 text-xs sm:text-sm leading-relaxed mb-5">
-                Need urgent assistance or an immediate quote? Send us photos or details directly on WhatsApp.
+                Need urgent assistance or an immediate quote? Send us your move details or photos directly via email.
               </p>
             </div>
 
             <a 
-              href="https://wa.me/13654400188"
-              target="_blank"
-              rel="noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b958] text-white py-3.5 px-5 rounded-xl font-bold text-sm shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+              href="mailto:Tripletaskmovers@gmail.com?subject=Rapid%20Estimate%20Request%20-%20Triple%20Task%20Movers"
+              className="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 py-3.5 px-5 rounded-xl font-bold text-sm shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
             >
-              <MessageCircle size={18} />
-              <span>Chat with Dispatch</span>
+              <Mail size={18} className="text-[#B08D57]" />
+              <span>Email Our Dispatch</span>
             </a>
           </div>
 

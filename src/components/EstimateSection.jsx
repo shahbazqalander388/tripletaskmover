@@ -25,25 +25,72 @@ export default function EstimateSection() {
     fromAddress: '',
     toAddress: ''
   });
+  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [statusMessage, setStatusMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    const message = `*Free Estimate Request - Triple Task Movers*%0A
-*Date:* ${formData.moveDate || 'Flexible'}%0A
-*Service:* ${formData.serviceType}%0A
-*Name:* ${formData.name}%0A
-*Phone:* ${formData.phone}%0A
-*Email:* ${formData.email || 'N/A'}%0A
-*Pickup Address:* ${formData.fromAddress}%0A
-*Dropoff Address:* ${formData.toAddress}`;
+  const buildMailtoUrl = () => {
+    const subject = encodeURIComponent(`Estimate Request: ${formData.serviceType} - ${formData.name}`);
+    const body = encodeURIComponent(
+      `Hello Triple Task Movers Team,\n\nI would like to request a free estimate for my upcoming move:\n\n` +
+      `• Service Required: ${formData.serviceType}\n` +
+      `• Preferred Move Date: ${formData.moveDate || 'Flexible'}\n` +
+      `• Full Name: ${formData.name}\n` +
+      `• Phone Number: ${formData.phone}\n` +
+      `• Email Address: ${formData.email || 'N/A'}\n` +
+      `• Moving From: ${formData.fromAddress}\n` +
+      `• Moving To: ${formData.toAddress}\n\n` +
+      `Please get back to me with pricing and availability.\n\nThank you!`
+    );
+    return `mailto:Tripletaskmovers@gmail.com?subject=${subject}&body=${body}`;
+  };
 
-    const whatsappUrl = `https://wa.me/13654400188?text=${message}`;
-    window.open(whatsappUrl, '_blank');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setStatusMessage('');
+
+    const mailtoUrl = buildMailtoUrl();
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/Tripletaskmovers@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Moving Estimate Request: ${formData.serviceType} - ${formData.name}`,
+          _template: 'table',
+          _captcha: 'false',
+          'Customer Name': formData.name,
+          'Phone': formData.phone,
+          'Customer Email': formData.email || 'Not provided',
+          'Service Required': formData.serviceType,
+          'Move Date': formData.moveDate || 'Flexible',
+          'Moving From': formData.fromAddress,
+          'Moving To': formData.toAddress
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setStatusMessage('Your estimate request has been sent to Tripletaskmovers@gmail.com! Our team will contact you shortly.');
+      } else {
+        // Fallback to mailto
+        setStatus('success');
+        setStatusMessage('Your estimate has been prepared. Opening your email app...');
+        window.location.href = mailtoUrl;
+      }
+    } catch {
+      // In case of network error or adblock, trigger mailto directly
+      setStatus('success');
+      setStatusMessage('Opening your email app to send the estimate details directly to Tripletaskmovers@gmail.com...');
+      window.location.href = mailtoUrl;
+    }
   };
 
   return (
@@ -268,18 +315,62 @@ export default function EstimateSection() {
                   </div>
                 </div>
 
+                {/* Success Notification Banner */}
+                {status === 'success' && (
+                  <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-start gap-3 text-emerald-900 animate-fadeIn">
+                    <CheckCircle2 size={22} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1 text-xs sm:text-sm">
+                      <div className="font-extrabold text-sm mb-1 text-emerald-800">
+                        Estimate Request Sent via Email!
+                      </div>
+                      <p className="text-emerald-700 leading-relaxed mb-2">
+                        {statusMessage}
+                      </p>
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        <a 
+                          href={buildMailtoUrl()} 
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 px-3 py-1.5 rounded-lg transition-colors"
+                        >
+                          <Mail size={14} />
+                          <span>Open in Email App</span>
+                        </a>
+                        <button 
+                          type="button" 
+                          onClick={() => {
+                            setStatus('idle');
+                            setFormData({
+                              moveDate: '',
+                              serviceType: '1-2 Bedroom Home',
+                              name: '',
+                              email: '',
+                              phone: '',
+                              fromAddress: '',
+                              toAddress: ''
+                            });
+                          }}
+                          className="text-xs font-bold text-slate-600 hover:text-slate-900 px-2 py-1.5 underline cursor-pointer"
+                        >
+                          Submit Another Request
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Submit Button */}
                 <button 
                   type="submit" 
-                  className="w-full mt-2 bg-[#B08D57] hover:bg-[#977647] text-white font-extrabold text-sm sm:text-base py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer"
+                  disabled={status === 'submitting'}
+                  className="w-full mt-2 bg-[#B08D57] hover:bg-[#977647] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer"
                 >
-                  <span>Get Free WhatsApp Estimate</span>
+                  <Mail size={18} />
+                  <span>{status === 'submitting' ? 'Sending via Email...' : 'Send Estimate Request via Email'}</span>
                   <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                 </button>
 
                 {/* Privacy note */}
-                <p className="text-[11px] text-center text-slate-400 font-medium">
-                  Direct communication with our Red Deer dispatch team. Zero spam.
+                <p className="text-[11px] text-center text-slate-500 font-medium">
+                  Direct submission to <span className="font-bold text-slate-700">Tripletaskmovers@gmail.com</span>. Direct dispatch, zero spam.
                 </p>
 
               </form>

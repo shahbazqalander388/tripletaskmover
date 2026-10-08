@@ -27,7 +27,7 @@ export default function Hero() {
               alt="Triple Task Movers - Moving, Cleaning & Junk Removal" 
               className="w-full h-auto object-contain rounded-2xl shadow-inner transform hover:scale-[1.02] transition-transform duration-300"
               onError={(e) => {
-                e.currentTarget.src = "https://res.cloudinary.com/dai2g47e4/image/upload/v1784754839/WhatsApp_Image_2026-07-23_at_1.52.49_AM_cdyvk3.jpg";
+                e.currentTarget.src = "/logo.jpg";
               }}
             />
           </div>

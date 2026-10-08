@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, ArrowRight, MessageCircle, MapPin, X } from 'lucide-react';
+import { Phone, ArrowRight, Mail, MapPin, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,7 +81,7 @@ export default function Navbar() {
                   alt="Triple Task Movers Logo" 
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    e.currentTarget.src = "https://res.cloudinary.com/dai2g47e4/image/upload/v1784754839/WhatsApp_Image_2026-07-23_at_1.52.49_AM_cdyvk3.jpg";
+                    e.currentTarget.src = "/logo.jpg";
                   }}
                 />
               </div>
@@ -200,7 +200,7 @@ export default function Navbar() {
                 alt="Triple Task Movers" 
                 className="w-full h-full object-contain"
                 onError={(e) => {
-                  e.currentTarget.src = "https://res.cloudinary.com/dai2g47e4/image/upload/v1784754839/WhatsApp_Image_2026-07-23_at_1.52.49_AM_cdyvk3.jpg";
+                  e.currentTarget.src = "/logo.jpg";
                 }}
               />
             </div>
@@ -273,14 +273,12 @@ export default function Navbar() {
             </a>
 
             <a 
-              href="https://wa.me/13654400188"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:Tripletaskmovers@gmail.com"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20b958] text-white px-3 py-3 rounded-xl font-bold text-xs shadow-sm transition-colors"
+              className="flex items-center justify-center gap-1.5 bg-[#B08D57] hover:bg-[#977647] text-white px-3 py-3 rounded-xl font-bold text-xs shadow-sm transition-colors"
             >
-              <MessageCircle size={15} />
-              <span>WhatsApp</span>
+              <Mail size={15} />
+              <span>Email Us</span>
             </a>
           </div>
 

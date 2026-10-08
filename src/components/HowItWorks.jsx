@@ -6,7 +6,7 @@ export default function HowItWorks() {
     {
       step: '01',
       title: 'Request a Free Quote',
-      description: 'Fill out our quick estimate form or send us a WhatsApp message with your move dates, items, and locations.',
+      description: 'Fill out our quick estimate form or email us directly with your move dates, items, and locations.',
       icon: <FileText size={26} className="text-[#B08D57]" />
     },
     {
