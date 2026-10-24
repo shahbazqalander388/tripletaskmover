@@ -9,7 +9,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans antialiased text-slate-800 bg-slate-50 selection:bg-[#B08D57]/20 selection:text-slate-900;
+    @apply font-sans antialiased text-slate-800 bg-slate-50 selection:bg-emerald-500/20 selection:text-slate-900;
   }
 }
 
@@ -28,14 +28,18 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .gold-gradient-bg {
-    background: linear-gradient(135deg, #cba770 0%, #B08D57 50%, #977647 100%);
+  .green-gradient-bg {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
   }
   
-  .gold-text-gradient {
-    background: linear-gradient(135deg, #e4c794 0%, #B08D57 60%, #977647 100%);
+  .green-text-gradient {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 60%, #16a34a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .orange-gradient-bg {
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
   }
 }
 

@@ -8,10 +8,15 @@ export default {
     extend: {
       colors: {
         brand: {
+          green: '#16a34a',
+          greenLight: '#22c55e',
+          greenDark: '#15803d',
+          orange: '#ea580c',
+          orangeLight: '#f97316',
+          dark: '#0e1317',
+          darker: '#0a0d10',
+          slate: '#1e293b',
           gold: '#B08D57',
-          goldDark: '#977647',
-          goldLight: '#cba770',
-          goldSoft: '#fbf7ee',
         },
         amber: {
           400: '#fbbf24',

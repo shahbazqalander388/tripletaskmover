@@ -1,71 +1,120 @@
 import React from 'react';
-import { ArrowDown, Phone, ShieldCheck, Clock } from 'lucide-react';
+import { ShieldCheck, DollarSign, ThumbsUp, Phone, Star, CheckCircle2 } from 'lucide-react';
+
+const PHONE_NUMBER = "587-377-24-52";
+const PHONE_TEL = "tel:+15873772452";
 
 export default function Hero() {
   return (
-    <section 
-      id="home" 
-      className="relative min-h-[600px] lg:min-h-[700px] w-full flex items-center justify-center bg-slate-950 overflow-hidden py-12 lg:py-20"
-    >
-      {/* Background Graphic & Accent Glows */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/95 to-slate-900" />
-        {/* Warm Golden Glows matching #B08D57 */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] sm:w-[45rem] h-[30rem] rounded-full bg-[#B08D57]/20 blur-[140px] pointer-events-none" />
-      </div>
+    <div id="home" className="w-full bg-[#0e1317]">
+      {/* Visual Hero Banner Section */}
+      <section className="relative w-full bg-[#0e1317] overflow-hidden flex flex-col items-center">
+        {/* Subtle Dark Radial Atmosphere */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#121619] via-[#0e1317] to-[#0a0e11] pointer-events-none" />
 
-      {/* Front Hero Content: Official Logo Showcase */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-        
-        {/* Main Logo Image Displayed in Front */}
-        <div className="relative group max-w-[340px] sm:max-w-[460px] lg:max-w-[520px] w-full mb-8">
-          <div className="absolute -inset-2 bg-gradient-to-r from-[#B08D57] via-[#cba770] to-[#977647] rounded-3xl opacity-40 blur-xl group-hover:opacity-60 transition duration-500"></div>
-          
-          <div className="relative bg-white rounded-3xl p-3 sm:p-5 shadow-[0_20px_60px_rgba(0,0,0,0.4)] border-2 border-[#B08D57]/50 overflow-hidden">
+        {/* Hero Visual Container */}
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto">
+          <div className="w-full relative">
             <img 
-              src="/icon-512.png" 
-              alt="Triple Task Movers - Moving, Cleaning & Junk Removal" 
-              className="w-full h-auto object-contain rounded-2xl shadow-inner transform hover:scale-[1.02] transition-transform duration-300"
+              src="/hero-pristine.jpg" 
+              alt="Triple Task Movers - One Team. Three Tasks. Total Satisfaction. Moving, Cleaning, Junk Removal."
+              className="w-full h-auto block select-none"
               onError={(e) => {
-                e.currentTarget.src = "/logo.jpg";
+                e.currentTarget.src = "/hero-main.jpg";
               }}
             />
           </div>
         </div>
 
-        {/* Quick Actions & Subtitle */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6">
+        {/* Mobile Quick Direct Call Bar (Quote button removed as requested, clean tactile call bar) */}
+        <div className="md:hidden relative z-20 w-full px-5 pt-2 pb-4">
           <a 
-            href="#estimate"
-            className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#977647] text-white px-6 sm:px-8 py-3.5 rounded-xl font-extrabold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+            href={PHONE_TEL}
+            className="w-full inline-flex items-center justify-center gap-3 bg-[#141b21] hover:bg-[#1a232b] active:bg-[#202b35] text-white border border-white/15 px-4 py-3 rounded-2xl font-black text-sm tracking-wide shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all active:scale-[0.98]"
           >
-            <span>Get Free Estimate</span>
-            <ArrowDown size={18} />
-          </a>
-
-          <a 
-            href="tel:+13654400188"
-            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 sm:px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base backdrop-blur-md transition-all transform hover:-translate-y-0.5"
-          >
-            <Phone size={18} className="text-[#B08D57]" />
-            <span>+1 (365) 440-0188</span>
+            <span className="w-8 h-8 rounded-full bg-[#22c55e] flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(34,197,94,0.6)]">
+              <Phone size={15} className="text-white fill-white" />
+            </span>
+            <span className="font-extrabold italic text-sm tracking-wider">CALL {PHONE_NUMBER}</span>
           </a>
         </div>
+      </section>
 
-        {/* Quick Highlights Strip */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-slate-300 text-xs sm:text-sm font-semibold">
-          <div className="flex items-center gap-1.5">
-            <ShieldCheck size={16} className="text-[#B08D57]" />
-            <span>Licensed & Insured</span>
+      {/* Feature / Trust Bar (Explicitly Left-Aligned on mobile as requested, 3 columns on tablet/desktop) */}
+      <section className="w-full bg-[#0a0e11] border-t border-b border-white/10 py-6 sm:py-7 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="flex flex-col sm:grid sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-start sm:items-center">
+            
+            {/* Feature 1: Professional You Can Trust (Left-aligned on mobile) */}
+            <div className="flex items-center justify-start gap-4 w-full group">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#22c55e] border-2 border-emerald-400 flex items-center justify-center flex-shrink-0 shadow-[0_0_18px_rgba(34,197,94,0.35)] group-hover:scale-105 transition-transform duration-300">
+                <ShieldCheck size={25} className="text-white stroke-[2.4]" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="font-black italic text-white text-base sm:text-sm md:text-base lg:text-lg tracking-wider uppercase leading-tight">
+                  PROFESSIONAL
+                </span>
+                <span className="font-black italic text-white text-base sm:text-sm md:text-base lg:text-lg tracking-wider uppercase leading-tight mt-0.5">
+                  YOU CAN TRUST
+                </span>
+              </div>
+            </div>
+
+            {/* Feature 2: Affordable Pricing (Left-aligned on mobile) */}
+            <div className="flex items-center justify-start gap-4 w-full sm:border-x sm:border-white/15 sm:px-4 lg:px-6 group">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#22c55e] border-2 border-emerald-400 flex items-center justify-center flex-shrink-0 shadow-[0_0_18px_rgba(34,197,94,0.35)] group-hover:scale-105 transition-transform duration-300">
+                <DollarSign size={25} className="text-white stroke-[3]" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="font-black italic text-white text-base sm:text-sm md:text-base lg:text-lg tracking-wider uppercase leading-tight">
+                  AFFORDABLE
+                </span>
+                <span className="font-black italic text-white text-base sm:text-sm md:text-base lg:text-lg tracking-wider uppercase leading-tight mt-0.5">
+                  PRICING
+                </span>
+              </div>
+            </div>
+
+            {/* Feature 3: Satisfaction Guaranteed (Left-aligned on mobile) */}
+            <div className="flex items-center justify-start gap-4 w-full group">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#22c55e] border-2 border-emerald-400 flex items-center justify-center flex-shrink-0 shadow-[0_0_18px_rgba(34,197,94,0.35)] group-hover:scale-105 transition-transform duration-300">
+                <ThumbsUp size={23} className="text-white fill-white" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="font-black italic text-white text-base sm:text-sm md:text-base lg:text-lg tracking-wider uppercase leading-tight">
+                  SATISFACTION
+                </span>
+                <span className="font-black italic text-white text-base sm:text-sm md:text-base lg:text-lg tracking-wider uppercase leading-tight mt-0.5">
+                  GUARANTEED
+                </span>
+              </div>
+            </div>
+
           </div>
-          <span>•</span>
-          <div className="flex items-center gap-1.5">
-            <Clock size={16} className="text-[#B08D57]" />
-            <span>24/7 Red Deer & Central Alberta</span>
+
+          {/* Desktop Trust Highlights Strip */}
+          <div className="hidden md:flex items-center justify-center gap-6 lg:gap-10 pt-6 mt-6 border-t border-white/10 text-white/70 text-xs font-semibold tracking-wide">
+            <div className="flex items-center gap-2">
+              <div className="flex text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={13} className="fill-amber-400" />
+                ))}
+              </div>
+              <span className="text-white font-bold">5.0 Star Rated Local Service</span>
+            </div>
+            <span className="text-white/20">•</span>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 size={15} className="text-[#22c55e]" />
+              <span>Licensed & Fully Insured Crew</span>
+            </div>
+            <span className="text-white/20">•</span>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
+              <span>24/7 Availability Across Central Alberta</span>
+            </div>
           </div>
         </div>
-
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

@@ -102,8 +102,8 @@ export default function EstimateSection() {
           <div className="lg:col-span-6 space-y-6">
             
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#B08D57]/10 text-[#B08D57] px-3.5 py-1.5 rounded-lg border border-[#B08D57]/20 shadow-sm">
-              <ShieldCheck size={16} className="text-[#B08D57]" />
+            <div className="inline-flex items-center gap-2 bg-[#22c55e]/10 text-[#16a34a] px-3.5 py-1.5 rounded-lg border border-[#22c55e]/20 shadow-sm">
+              <ShieldCheck size={16} className="text-[#22c55e]" />
               <span className="text-xs sm:text-sm font-bold tracking-wide">
                 Top-Rated Movers in Red Deer & Area
               </span>
@@ -111,7 +111,7 @@ export default function EstimateSection() {
 
             {/* Main Headline */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black italic text-slate-900 tracking-tight leading-tight">
-              Moving Made <span className="text-[#B08D57]">Easy, Safe</span> & Stress-Free.
+              Moving Made <span className="text-[#22c55e]">Easy, Safe</span> & Stress-Free.
             </h2>
 
             {/* Subtitle / Description */}
@@ -123,15 +123,15 @@ export default function EstimateSection() {
             {/* Feature Bullets */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
               <div className="flex items-center gap-2 bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-sm">
-                <Clock size={16} className="text-[#B08D57] flex-shrink-0" />
+                <Clock size={16} className="text-[#22c55e] flex-shrink-0" />
                 <span className="text-xs font-bold text-slate-800">24/7 Availability</span>
               </div>
               <div className="flex items-center gap-2 bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-sm">
-                <ShieldCheck size={16} className="text-[#B08D57] flex-shrink-0" />
+                <ShieldCheck size={16} className="text-[#22c55e] flex-shrink-0" />
                 <span className="text-xs font-bold text-slate-800">Insured Movers</span>
               </div>
               <div className="flex items-center gap-2 bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-sm col-span-2 sm:col-span-1">
-                <CheckCircle2 size={16} className="text-[#B08D57] flex-shrink-0" />
+                <CheckCircle2 size={16} className="text-[#22c55e] flex-shrink-0" />
                 <span className="text-xs font-bold text-slate-800">Zero Hidden Fees</span>
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function EstimateSection() {
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Successful Moves</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold italic text-[#B08D57]">4.9 / 5</div>
+                <div className="text-2xl sm:text-3xl font-extrabold italic text-[#22c55e]">4.9 / 5</div>
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Customer Rating</div>
               </div>
               <div>
@@ -159,10 +159,10 @@ export default function EstimateSection() {
             <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-[0_15px_45px_rgba(0,0,0,0.08)] border border-slate-200/80 relative overflow-hidden">
               
               {/* Form Top Accent Stripe */}
-              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#B08D57] via-[#cba770] to-[#977647]" />
+              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#22c55e] via-[#4ade80] to-[#16a34a]" />
 
               <div className="mb-6">
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B08D57] mb-1">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#16a34a] mb-1">
                   <span>Fast & Free Quote</span>
                 </div>
                 <h3 className="text-2xl font-black italic text-slate-900 tracking-tight">
@@ -187,7 +187,7 @@ export default function EstimateSection() {
                         name="serviceType" 
                         value={formData.serviceType}
                         onChange={handleChange}
-                        className="w-full pl-9 pr-6 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all cursor-pointer"
+                        className="w-full pl-9 pr-6 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#22c55e] focus:border-[#22c55e] outline-none transition-all cursor-pointer"
                       >
                         <option>Studio Apartment</option>
                         <option>1-2 Bedroom Home</option>
@@ -213,7 +213,7 @@ export default function EstimateSection() {
                         name="moveDate" 
                         value={formData.moveDate} 
                         onChange={handleChange} 
-                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all"
+                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#22c55e] focus:border-[#22c55e] outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -233,7 +233,7 @@ export default function EstimateSection() {
                         required 
                         value={formData.name} 
                         onChange={handleChange} 
-                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all placeholder:text-slate-400" 
+                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#22c55e] focus:border-[#22c55e] outline-none transition-all placeholder:text-slate-400" 
                         placeholder="John Doe" 
                       />
                     </div>
@@ -251,8 +251,8 @@ export default function EstimateSection() {
                         required 
                         value={formData.phone} 
                         onChange={handleChange} 
-                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all placeholder:text-slate-400" 
-                        placeholder="+1 (365) 440-0188" 
+                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#22c55e] focus:border-[#22c55e] outline-none transition-all placeholder:text-slate-400" 
+                        placeholder="587-377-24-52" 
                       />
                     </div>
                   </div>
@@ -270,7 +270,7 @@ export default function EstimateSection() {
                       name="email" 
                       value={formData.email} 
                       onChange={handleChange} 
-                      className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all placeholder:text-slate-400" 
+                      className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#22c55e] focus:border-[#22c55e] outline-none transition-all placeholder:text-slate-400" 
                       placeholder="john@example.com" 
                     />
                   </div>
@@ -290,7 +290,7 @@ export default function EstimateSection() {
                         required 
                         value={formData.fromAddress} 
                         onChange={handleChange} 
-                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all placeholder:text-slate-400" 
+                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#22c55e] focus:border-[#22c55e] outline-none transition-all placeholder:text-slate-400" 
                         placeholder="Pickup address / City" 
                       />
                     </div>
@@ -308,7 +308,7 @@ export default function EstimateSection() {
                         required 
                         value={formData.toAddress} 
                         onChange={handleChange} 
-                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#B08D57] focus:border-[#B08D57] outline-none transition-all placeholder:text-slate-400" 
+                        className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#22c55e] focus:border-[#22c55e] outline-none transition-all placeholder:text-slate-400" 
                         placeholder="Destination address" 
                       />
                     </div>
@@ -361,7 +361,7 @@ export default function EstimateSection() {
                 <button 
                   type="submit" 
                   disabled={status === 'submitting'}
-                  className="w-full mt-2 bg-[#B08D57] hover:bg-[#977647] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer"
+                  className="w-full mt-2 bg-[#22c55e] hover:bg-[#16a34a] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <Mail size={18} />
                   <span>{status === 'submitting' ? 'Sending via Email...' : 'Send Estimate Request via Email'}</span>

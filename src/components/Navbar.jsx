@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, ArrowRight, Mail, MapPin, X } from 'lucide-react';
+import { Phone, ArrowRight, Mail, X } from 'lucide-react';
+
+const NEW_LOGO_URL = "https://res.cloudinary.com/dai2g47e4/image/upload/v1784746169/WhatsApp_Image_2026-07-22_at_11.45.42_PM_pb3awd.jpg";
+const PHONE_NUMBER = "587-377-24-52";
+const PHONE_TEL = "tel:+15873772452";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,25 +11,25 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Get Estimate', href: '#estimate' },
-    { name: 'Services', href: '#services' },
-    { name: 'Why Us', href: '#why-us' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'FAQs', href: '#faqs' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', id: 'home' },
+    { name: 'Services', href: '#services', id: 'services' },
+    { name: 'Estimate', href: '#estimate', id: 'estimate' },
+    { name: 'Why Us', href: '#why-us', id: 'why-us' },
+    { name: 'Reviews', href: '#testimonials', id: 'testimonials' },
+    { name: 'FAQs', href: '#faqs', id: 'faqs' },
+    { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'estimate', 'services', 'why-us', 'how-it-works', 'faqs', 'contact'];
+      const sections = ['contact', 'faqs', 'how-it-works', 'testimonials', 'why-us', 'estimate', 'services', 'home'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 250 && rect.bottom >= 200) {
+          if (rect.top <= 250 && rect.bottom >= 150) {
             setActiveSection(sectionId);
             break;
           }
@@ -64,109 +68,94 @@ export default function Navbar() {
   return (
     <>
       <nav 
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.06)] border-b border-slate-200/80 py-3' 
-            : 'bg-white border-b border-slate-100 py-4'
+            ? 'bg-[#0f1418]/95 backdrop-blur-md shadow-[0_6px_25px_rgba(0,0,0,0.5)] border-b border-white/10 py-2.5' 
+            : 'bg-[#121619] border-b border-white/10 py-3'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             
-            {/* Brand Logo & Name */}
-            <a href="#home" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-200/70 p-1 flex items-center justify-center flex-shrink-0 group-hover:shadow-md transition-shadow">
+            {/* Brand Logo */}
+            <a href="#home" className="flex items-center group flex-shrink-0">
+              <div className="h-12 sm:h-14 lg:h-16 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                 <img 
-                  src="/icon-512.png" 
-                  alt="Triple Task Movers Logo" 
-                  className="w-full h-full object-contain"
+                  src="/logo-badge.png"
+                  alt="Triple Task Movers Official Logo" 
+                  className="h-full w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
                   onError={(e) => {
-                    e.currentTarget.src = "/logo.jpg";
+                    e.currentTarget.src = NEW_LOGO_URL;
                   }}
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-lg sm:text-xl italic tracking-tight text-slate-900 group-hover:text-[#B08D57] transition-colors leading-tight">
-                  TRIPLE TASK <span className="text-[#B08D57]">MOVERS</span>
-                </span>
-                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
-                  Moving • Cleaning • Junk Removal
-                </span>
-              </div>
             </a>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.href.substring(1);
+            {/* Desktop Navigation Links (Centered, Matching Screenshot) */}
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+              {navLinks.map((link, idx) => {
+                const isActive = activeSection === link.id || (link.name === 'Home' && activeSection === 'home');
                 return (
                   <a
-                    key={link.name}
+                    key={`${link.name}-${idx}`}
                     href={link.href}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                    className={`relative py-2 text-sm font-bold tracking-wide transition-colors duration-200 ${
                       isActive 
-                        ? 'text-[#B08D57] bg-[#B08D57]/10' 
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
+                        ? 'text-[#22c55e]' 
+                        : 'text-white/90 hover:text-white'
                     }`}
                   >
-                    {link.name}
+                    <span>{link.name}</span>
+                    {/* Active Green Indicator Line Underneath */}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#22c55e] rounded-full shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+                    )}
                   </a>
                 );
               })}
             </div>
 
-            {/* Desktop Right CTAs */}
-            <div className="hidden sm:flex items-center gap-3">
-              <a 
-                href="tel:+13654400188"
-                className="flex items-center gap-2 px-3.5 py-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 font-semibold text-sm transition-all"
-              >
-                <div className="w-7 h-7 rounded-full bg-[#B08D57]/10 text-[#B08D57] flex items-center justify-center">
-                  <Phone size={14} />
-                </div>
-                <span className="hidden xl:inline">+1 (365) 440-0188</span>
-                <span className="xl:hidden">Call</span>
-              </a>
-
+            {/* Desktop Right CTA: Get a Free Quote Green Pill Button */}
+            <div className="hidden sm:flex items-center gap-3.5">
               <a 
                 href="#estimate"
-                className="flex items-center gap-2 bg-[#B08D57] hover:bg-[#977647] text-white px-4 sm:px-5 py-2.5 rounded-xl font-bold text-sm shadow-sm hover:shadow-md transition-all transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-[#22c55e] hover:bg-[#16a34a] text-white px-5 sm:px-6 py-2.5 rounded-full font-bold text-sm tracking-wide shadow-[0_4px_16px_rgba(34,197,94,0.4)] hover:shadow-[0_6px_22px_rgba(34,197,94,0.55)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <span>Get Estimate</span>
-                <ArrowRight size={15} />
+                <Phone size={16} className="fill-white" />
+                <span>Get a Free Quote</span>
               </a>
             </div>
 
-            {/* Mobile / Tablet Cool Animated Hamburger Button */}
+            {/* Mobile / Tablet Controls */}
             <div className="lg:hidden flex items-center gap-2.5">
               <a 
-                href="tel:+13654400188"
-                className="sm:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-[#B08D57] text-white shadow-sm"
+                href={PHONE_TEL}
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#22c55e] hover:bg-[#16a34a] text-white shadow-md active:scale-95 transition-all"
                 aria-label="Call Now"
               >
-                <Phone size={17} />
+                <Phone size={17} className="fill-white" />
               </a>
 
               {/* Animated 3-Bar Hamburger */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="relative w-11 h-11 rounded-xl bg-slate-100 hover:bg-slate-200/80 active:scale-95 flex flex-col items-center justify-center gap-1.5 focus:outline-none transition-all cursor-pointer p-2 z-50 border border-slate-200/60"
+                className="relative w-11 h-11 rounded-xl bg-white/10 hover:bg-white/15 active:scale-95 flex flex-col items-center justify-center gap-1.5 focus:outline-none transition-all cursor-pointer p-2 z-50 border border-white/15"
                 aria-label={isOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isOpen}
               >
                 <span 
-                  className={`block h-0.5 w-5 bg-slate-800 rounded-full transition-all duration-300 ease-in-out ${
-                    isOpen ? 'rotate-45 translate-y-2 bg-[#B08D57]' : ''
+                  className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 ease-in-out ${
+                    isOpen ? 'rotate-45 translate-y-2 bg-[#22c55e]' : ''
                   }`} 
                 />
                 <span 
-                  className={`block h-0.5 w-5 bg-slate-800 rounded-full transition-all duration-200 ease-in-out ${
+                  className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-200 ease-in-out ${
                     isOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
                   }`} 
                 />
                 <span 
-                  className={`block h-0.5 w-5 bg-slate-800 rounded-full transition-all duration-300 ease-in-out ${
-                    isOpen ? '-rotate-45 -translate-y-2 bg-[#B08D57]' : ''
+                  className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 ease-in-out ${
+                    isOpen ? '-rotate-45 -translate-y-2 bg-[#22c55e]' : ''
                   }`} 
                 />
               </button>
@@ -176,47 +165,47 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Backdrop Dimmed Blur Overlay (Guarantees menu never blends into website content) */}
+      {/* Dimmed Blur Backdrop for Mobile Drawer */}
       <div 
-        className={`fixed inset-0 bg-slate-950/70 backdrop-blur-md z-40 transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-black/80 backdrop-blur-md z-50 transition-opacity duration-300 lg:hidden ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsOpen(false)}
         aria-hidden="true"
       />
 
-      {/* Cool Sliding Side Drawer (Mobile & Tablet) */}
+      {/* Mobile Drawer (Clean Dark Theme Matching Navbar) */}
       <div 
-        className={`fixed top-0 right-0 bottom-0 w-[88%] sm:w-[380px] max-w-full bg-white z-50 shadow-[0_0_60px_rgba(0,0,0,0.35)] flex flex-col justify-between transition-transform duration-300 ease-out lg:hidden border-l border-slate-200 ${
+        className={`fixed top-0 right-0 bottom-0 w-[88%] sm:w-[380px] max-w-full bg-[#0f1418] text-white z-50 shadow-[0_0_60px_rgba(0,0,0,0.8)] flex flex-col justify-between transition-transform duration-300 ease-out lg:hidden border-l border-white/10 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {/* Drawer Top Header */}
-        <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-200 p-1 flex items-center justify-center flex-shrink-0">
+        {/* Drawer Header */}
+        <div className="p-5 border-b border-white/10 flex items-center justify-between bg-black/30">
+          <div className="flex items-center gap-3">
+            <div className="h-11 flex items-center justify-center flex-shrink-0">
               <img 
-                src="/icon-512.png" 
+                src="/logo-badge.png"
                 alt="Triple Task Movers" 
-                className="w-full h-full object-contain"
+                className="h-full w-auto object-contain"
                 onError={(e) => {
-                  e.currentTarget.src = "/logo.jpg";
+                  e.currentTarget.src = NEW_LOGO_URL;
                 }}
               />
             </div>
             <div>
-              <span className="font-extrabold text-sm italic text-slate-900 block leading-tight">
-                TRIPLE TASK <span className="text-[#B08D57]">MOVERS</span>
+              <span className="font-extrabold text-sm italic text-white block leading-tight">
+                TRIPLE TASK <span className="text-[#22c55e]">MOVERS</span>
               </span>
-              <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block">
-                Navigation Menu
+              <span className="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider block">
+                Moving • Cleaning • Junk
               </span>
             </div>
           </div>
 
           <button
             onClick={() => setIsOpen(false)}
-            className="w-9 h-9 rounded-xl bg-slate-200/60 hover:bg-slate-200 flex items-center justify-center text-slate-700 hover:text-slate-900 transition-colors"
+            className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
             aria-label="Close menu"
           >
             <X size={20} />
@@ -224,17 +213,17 @@ export default function Navbar() {
         </div>
 
         {/* Drawer Navigation Links */}
-        <div className="px-5 py-6 space-y-1.5 overflow-y-auto flex-1">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
+        <div className="px-5 py-6 space-y-2 overflow-y-auto flex-1">
+          {navLinks.map((link, idx) => {
+            const isActive = activeSection === link.id || (link.name === 'Home' && activeSection === 'home');
             return (
               <a
-                key={link.name}
+                key={`mobile-${link.name}-${idx}`}
                 href={link.href}
                 className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold transition-all duration-200 ${
                   isActive 
-                    ? 'bg-[#B08D57]/15 text-[#B08D57] shadow-sm' 
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'bg-[#22c55e]/20 text-[#22c55e] border border-[#22c55e]/30' 
+                    : 'text-white/80 hover:bg-white/10 hover:text-white'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -242,7 +231,7 @@ export default function Navbar() {
                 <ArrowRight 
                   size={16} 
                   className={`transition-transform duration-200 ${
-                    isActive ? 'text-[#B08D57] translate-x-1' : 'text-slate-300'
+                    isActive ? 'text-[#22c55e] translate-x-1' : 'text-white/30'
                   }`} 
                 />
               </a>
@@ -251,39 +240,38 @@ export default function Navbar() {
         </div>
 
         {/* Drawer Bottom Actions & Contacts */}
-        <div className="p-5 border-t border-slate-100 bg-slate-50/80 space-y-3">
+        <div className="p-5 border-t border-white/10 bg-black/40 space-y-3">
           
           <a 
             href="#estimate"
             onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 w-full bg-[#B08D57] hover:bg-[#977647] text-white px-5 py-3.5 rounded-xl font-bold text-sm shadow-md transition-colors"
+            className="flex items-center justify-center gap-2 w-full bg-[#22c55e] hover:bg-[#16a34a] text-white px-5 py-3.5 rounded-xl font-bold text-sm shadow-[0_4px_16px_rgba(34,197,94,0.4)] transition-all"
           >
-            <span>Request Free Estimate</span>
-            <ArrowRight size={16} />
+            <Phone size={16} className="fill-white" />
+            <span>Get a Free Quote</span>
           </a>
 
           <div className="grid grid-cols-2 gap-2.5">
             <a 
-              href="tel:+13654400188"
+              href={PHONE_TEL}
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white px-3 py-3 rounded-xl font-bold text-xs shadow-sm transition-colors"
+              className="flex items-center justify-center gap-1.5 bg-white/10 hover:bg-white/20 text-white border border-white/15 px-3 py-3 rounded-xl font-bold text-xs transition-colors"
             >
-              <Phone size={14} className="text-[#B08D57]" />
-              <span>Call Us</span>
+              <Phone size={14} className="text-[#22c55e]" />
+              <span className="truncate">{PHONE_NUMBER}</span>
             </a>
 
             <a 
               href="mailto:Tripletaskmovers@gmail.com"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-1.5 bg-[#B08D57] hover:bg-[#977647] text-white px-3 py-3 rounded-xl font-bold text-xs shadow-sm transition-colors"
+              className="flex items-center justify-center gap-1.5 bg-white/10 hover:bg-white/20 text-white border border-white/15 px-3 py-3 rounded-xl font-bold text-xs transition-colors"
             >
-              <Mail size={15} />
+              <Mail size={15} className="text-[#22c55e]" />
               <span>Email Us</span>
             </a>
           </div>
 
-          {/* 24/7 Status Line */}
-          <div className="pt-2 text-center text-xs text-slate-500 font-medium">
+          <div className="pt-2 text-center text-xs text-white/60 font-medium">
             <span>24/7 Service Across Central Alberta</span>
           </div>
 

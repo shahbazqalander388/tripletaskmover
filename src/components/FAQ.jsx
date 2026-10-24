@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { ChevronDown, Mail, Phone, HelpCircle } from 'lucide-react';
 
+const PHONE_NUMBER = "587-377-24-52";
+const PHONE_TEL = "tel:+15873772452";
+
 export default function FAQ() {
   const faqs = [
     {
@@ -13,7 +16,7 @@ export default function FAQ() {
     },
     {
       question: "What service areas and cities do you cover?",
-      answer: "We primarily serve Red Deer, and nearby communities."
+      answer: "We primarily serve Red Deer, and nearby communities across Central Alberta."
     },
     {
       question: "How do you calculate your rates? Are there hidden fees?",
@@ -36,23 +39,23 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faqs" className="py-24 bg-[#B08D57] relative text-white overflow-hidden">
+    <section id="faqs" className="py-24 bg-[#0e1317] relative text-white overflow-hidden border-t border-white/10">
       {/* Background Subtle Ambient Patterns */}
-      <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-      <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-[#22c55e]/10 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 bg-black/20 text-white px-3.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider mb-3 border border-white/20">
+          <div className="inline-flex items-center gap-1.5 bg-[#22c55e]/15 text-[#22c55e] px-3.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider mb-3 border border-[#22c55e]/30">
             <HelpCircle size={14} />
             <span>Got Questions?</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black italic text-white tracking-tight mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto">
             Everything you need to know about our moving process, pricing, and 24/7 availability in Red Deer.
           </p>
         </div>
@@ -67,7 +70,7 @@ export default function FAQ() {
                 className={`rounded-2xl transition-all duration-300 overflow-hidden border ${
                   isOpen 
                     ? 'bg-white text-slate-900 shadow-xl border-white' 
-                    : 'bg-white/95 text-slate-900 hover:bg-white border-white/40 shadow-sm'
+                    : 'bg-white/95 text-slate-900 hover:bg-white border-white/30 shadow-sm'
                 }`}
               >
                 <button 
@@ -79,7 +82,7 @@ export default function FAQ() {
                     {faq.question}
                   </span>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'bg-[#B08D57] text-white rotate-180' : 'bg-slate-100 text-slate-600'
+                    isOpen ? 'bg-[#22c55e] text-white rotate-180' : 'bg-slate-100 text-slate-600'
                   }`}>
                     <ChevronDown size={18} />
                   </div>
@@ -100,26 +103,26 @@ export default function FAQ() {
         </div>
 
         {/* Bottom Help Box */}
-        <div className="mt-12 bg-black/25 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/20 text-center flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-12 bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/15 text-center flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="text-center sm:text-left">
             <h4 className="text-lg font-bold italic text-white">Have a specific question not listed here?</h4>
-            <p className="text-sm text-white/80 mt-1">Our dispatch team is online 24/7 to answer your calls and messages immediately.</p>
+            <p className="text-sm text-white/70 mt-1">Our dispatch team is online 24/7 to answer your calls and messages immediately.</p>
           </div>
           
           <div className="flex items-center gap-3 flex-shrink-0">
             <a 
               href="mailto:Tripletaskmovers@gmail.com?subject=FAQ%20Inquiry%20-%20Triple%20Task%20Movers"
-              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-md transition-all"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl border border-white/20 transition-all"
             >
-              <Mail size={16} className="text-[#B08D57]" />
+              <Mail size={16} className="text-[#22c55e]" />
               <span>Email Us</span>
             </a>
             <a 
-              href="tel:+13654400188"
-              className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-slate-100 text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-md transition-all"
+              href={PHONE_TEL}
+              className="inline-flex items-center gap-2 bg-[#22c55e] hover:bg-[#16a34a] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl shadow-md transition-all"
             >
-              <Phone size={16} className="text-[#B08D57]" />
-              <span>Call Now</span>
+              <Phone size={16} className="fill-white" />
+              <span>Call {PHONE_NUMBER}</span>
             </a>
           </div>
         </div>
